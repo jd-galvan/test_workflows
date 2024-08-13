@@ -1,0 +1,14 @@
+name: 2. TEST Deploy
+run-name: Executed by ${{ github.actor }} 🔍
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to deploy (e.g., v1.0.0)
+        required: true
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying my_image:${{ github.event.inputs.tag }}"
+      - run: echo "🍏 This job's status is ${{ job.status }}."
